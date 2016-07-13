@@ -27,16 +27,26 @@ var div = document.getElementsByTagName('div')[0];
 	});	
 	*/
 	
-function addEvent(obj,event,fn){
+function addEvent(obj,eventt,fn){
 	if(obj.addEventListener){
-		obj.addEventListener(event,fn)
+		obj.addEventListener(eventt,fn)
 	}else{
-		attachEvent('on'+event,function(){
-			fn.call(obj)
-			})
+		obj.attachEvent('on'+eventt,function(){
+			fn.call(obj);
+			});
 		}
 	
 	}
+
+/*function addEvent(obj,event,fn){
+	if(obj.addEventListener){
+		obj.addEventListener(event,fn);
+	}else{
+		obj.attachEvent('on'+event,function(){
+			fn.call(obj);
+			});
+		}
+	}*/
 	addEvent(div,'click',function(){
 		this.style.background = 'blue';
 		
